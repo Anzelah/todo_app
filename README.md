@@ -6,3 +6,4 @@ Tryied adding js functionality to the add buton. For some reason, it sint workin
 Yaaay I solved the above isue. Now i can comfortably add todo lists into the list. The button is working perfectly and seamlessly. And appending a new item to the already existing list. 
 Apparently i wasnt implementing it correctly. Before, everytime I clicked on the button, the existing list was overwritten and a new ne created. So had to first load existing list, go through the array creating the list element for each li and appending it to Ul. 
 Then now going to the click event listener where i just needed to retrive the input value and push the new todo to the existing list. No need to retrieve items here btw. Just pushing, creating li element for our new todo and appending it to Ul.
+Added the mark as dne when a list item is clicked. It isnt done though as i need to change the ::before background image as well. Just that then figure out what to do once done.

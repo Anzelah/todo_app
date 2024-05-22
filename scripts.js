@@ -1,49 +1,53 @@
 const myButton = document.querySelector('button');
 const myInput = document.querySelector('input');
-const myUl = document.querySelector('ul');
+const lists = document.getElementById('lists');
 
-
-// GET EXISTING TODOS & CREATE LIST ITEM FOR EACH
-/* Load existing list or create one if none */
-const existingList = JSON.parse(localStorage.getItem('list')) || [];
-
-/* display existing to-dos */
-existingList.forEach((item) => {
-	const li = document.createElement('li')
-	li.textContent = item
-	myUl.appendChild(li)
-});
 
 // WHEN YOU CLICK A BUTTON
 function addTodos() {
-	/* extract the new todo */
 	const newTodo = myInput.value;
 
 	/* if its a valid entry */
 	if (newTodo !== '') {
-		existingList.push(newTodo)
-		/* save updated list to local storage */
-		localStorage.setItem('list', JSON.stringify(existingList));
-
 		const li = document.createElement('li')
-		li.textContent = newTodo		
-		myUl.appendChild(li)
-
+		li.innerHTML = newTodo		
+		lists.appendChild(li)
 		myInput.value = ''
+		saveData()
+	} else {
+		alert('You must write something!')
 	}
 };
-myButton.addEventListener('click', addTodos);
+myButton.addEventListener('click', addTodos)
 
 
 // WHEN YOU CLICK A LIST ITEM
 
+const lst = document.getElementById('lists')
+
+lst.addEventListener('click', (event) => {
+	if (event.target.tagName === 'LI') {
+		event.target.classList.toggle('checked')
+	}
+})
+
+/*
 const lst = document.querySelectorAll('li')
+
 
 lst.forEach(item => {
 	item.addEventListener('click', () => {
 		item.style.textDecoration = 'line-through'
-		//item.style.backgroundImage = 'url(images/checked.png)'
+		item.style.setProperty('--image', 'url(images/checked.png)')
 	})
 });
 
+function saveData() {
+	localStorage.setItem('list', lists.innerHTML);
+}
 
+function displayData() {
+	localStorage.getItem('list') = lists.innerHTML;
+}
+
+*/

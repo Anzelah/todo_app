@@ -79,9 +79,9 @@ ul li::before {
   left: 8px;
 }
 
-/* li {
-  text decoratin: 'line-through';
-}*/
+.checked {
+  text-decoration: line-through;
+}
 
 .checked::before {
   background-image: url(images/checked.png);

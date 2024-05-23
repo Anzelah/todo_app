@@ -10,8 +10,12 @@ function addTodos() {
 	/* if its a valid entry */
 	if (newTodo !== '') {
 		const li = document.createElement('li')
-		li.innerHTML = newTodo		
+		li.innerHTML = newTodo
+		
+		const span = document.createElement('span')		
 		lists.appendChild(li)
+		lists.appendChild(span)
+
 		myInput.value = ''
 		saveData()
 	} else {
@@ -22,27 +26,17 @@ myButton.addEventListener('click', addTodos)
 
 
 // WHEN YOU CLICK A LIST ITEM
-
 const lst = document.getElementById('lists')
 
 lst.addEventListener('click', (event) => {
 	if (event.target.tagName === 'LI') {
 		event.target.classList.toggle('checked')
+		saveData()
 	}
-})
-
-/*
-const lst = document.querySelectorAll('li')
-
-
-lst.forEach(item => {
-	item.addEventListener('click', () => {
-		item.style.textDecoration = 'line-through'
-		item.style.setProperty('--image', 'url(images/checked.png)')
-	})
 });
 
 function saveData() {
+	const lists = document.getElementById('lists')
 	localStorage.setItem('list', lists.innerHTML);
 }
 
@@ -50,4 +44,3 @@ function displayData() {
 	localStorage.getItem('list') = lists.innerHTML;
 }
 
-*/

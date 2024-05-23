@@ -79,6 +79,21 @@ ul li::before {
   left: 8px;
 }
 
+span {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  content: "This is me";
+  background-color: red;
+  position: inherit;
+  height: 25px;
+  width: 25px;
+  top: 6px;
+  left: 0;
+  margin-right: 30px;
+} 
+
+
 .checked {
   text-decoration: line-through;
 }

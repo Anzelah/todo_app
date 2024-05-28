@@ -11,13 +11,15 @@ function addTodos() {
 	if (newTodo !== '') {
 		const li = document.createElement('li')
 		li.innerHTML = newTodo
-		
-		const span = document.createElement('span')		
 		lists.appendChild(li)
-		lists.appendChild(span)
+		saveData()
+		
+		const span = document.createElement('span')	
+		//span.innerHTML = "\u2705"
+		li.appendChild(span)
+		saveData()
 
 		myInput.value = ''
-		saveData()
 	} else {
 		alert('You must write something!')
 	}
@@ -31,16 +33,21 @@ const lst = document.getElementById('lists')
 lst.addEventListener('click', (event) => {
 	if (event.target.tagName === 'LI') {
 		event.target.classList.toggle('checked')
-		saveData()
+	}
+	else if (event.target.tagName === 'SPAN') {
+		event.target.parentElement.remove()
 	}
 });
 
+
+
 function saveData() {
 	const lists = document.getElementById('lists')
-	localStorage.setItem('list', lists.innerHTML);
+	const li = localStorage.setItem('list', lists.innerHTML);
+	return l
 }
+
 
 function displayData() {
 	localStorage.getItem('list') = lists.innerHTML;
 }
-

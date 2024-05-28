@@ -37,6 +37,7 @@
   background: lightgrey;
   margin-bottom: 25px;
   border-radius: 30px;
+  position: relative;
 }
 
 input {
@@ -80,18 +81,16 @@ ul li::before {
 }
 
 span {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  content: "This is me";
-  background-color: red;
-  position: inherit;
+  content: "";
+  background-image: url(images/icon.png);
+  background-size: cover;
+  background-position: center;
   height: 25px;
   width: 25px;
-  top: 6px;
-  left: 0;
-  margin-right: 30px;
-} 
+  position: absolute;
+  justify-content: space-between;
+  cursor: pointer;
+}
 
 
 .checked {

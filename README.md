@@ -9,3 +9,6 @@ Then now going to the click event listener where i just needed to retrive the in
 Added the mark as dne when a list item is clicked. It isnt done though as i need to change the ::before background image as well. Just that then figure out what to do once done.
 Arrays was resulting in unreusable code. So i completely did away with it and instead just used lists with no array. Needed to simplify the getting and setting item without the json.parse and stringify functions. This helps create callbale fuctions like saveData. Also, implemented event delegation and toggle function on the li elements. 
 Implemented the ability to remove an item from the list just by clicking the del icon. Also, did the css for it. Now remaining with saving data functonality and we done
+Implemented the saving data function then called it everytime there was changes to the lists i.e. when creating, checking, and deleting. 
+In addition, I created a display data function to retrive data from local storage and place it in my ul id i.e. lists so that everytime i reload the site, my data isnt lost. Its just retrieved from local storage. Called this function once after it.
+Basic functionalities done.

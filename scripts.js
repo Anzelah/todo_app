@@ -12,14 +12,13 @@ function addTodos() {
 		const li = document.createElement('li')
 		li.innerHTML = newTodo
 		lists.appendChild(li)
-		saveData()
-		
+
 		const span = document.createElement('span')	
-		//span.innerHTML = "\u2705"
+		span.innerHTML = "\u0078"
 		li.appendChild(span)
-		saveData()
 
 		myInput.value = ''
+		saveData();
 	} else {
 		alert('You must write something!')
 	}
@@ -33,21 +32,22 @@ const lst = document.getElementById('lists')
 lst.addEventListener('click', (event) => {
 	if (event.target.tagName === 'LI') {
 		event.target.classList.toggle('checked')
+		saveData();
 	}
 	else if (event.target.tagName === 'SPAN') {
 		event.target.parentElement.remove()
+		saveData();
 	}
 });
 
-
-
+// Save the data inside my local storage
 function saveData() {
-	const lists = document.getElementById('lists')
-	const li = localStorage.setItem('list', lists.innerHTML);
-	return l
+	localStorage.setItem('list', lists.innerHTML);
 }
 
-
-function displayData() {
-	localStorage.getItem('list') = lists.innerHTML;
+// Display my list
+function showData() {
+	lists.innerHTML = localStorage.getItem('list');
 }
+showData();
+
